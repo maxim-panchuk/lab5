@@ -100,25 +100,48 @@ public class MovieBuilder {
         System.out.println("Какой жанр фильма? : -- COMEDY ; ADVENTURE ; THRILLER ");
         MovieGenre newMovieGenre;
         switch (scan.nextLine()) {                                                      // Возможно улучшение с while
-            case "COMEDY" -> newMovieGenre = MovieGenre.COMEDY;
-            case "ADVENTURE" -> newMovieGenre = MovieGenre.ADVENTURE;
-            case "THRILLER" -> newMovieGenre = MovieGenre.THRILLER;
-            default -> {
+            case "COMEDY": {
+                newMovieGenre = MovieGenre.COMEDY;
+                break;
+            }
+            case "ADVENTURE": {
+                newMovieGenre = MovieGenre.ADVENTURE;
+                break;
+            }
+            case "THRILLER": {
+                newMovieGenre = MovieGenre.THRILLER;
+                break;
+            }
+            default: {
                 System.out.println("Некорректный ввод жанра, жанр будет установлен по умолчанию");
                 newMovieGenre = MovieGenre.ADVENTURE;
+                break;
             }
         }
 
         System.out.println("Какой рейтинг фильма? : -- G ; PG ; PG_13 ; R ; NC_17 ");
         MpaaRating newMpaaRating;
         switch (scan.nextLine()) {                                                      // Возможно улучшение с while
-            case "G" -> newMpaaRating = MpaaRating.G;
-            case "PG" -> newMpaaRating = MpaaRating.PG;
-            case "PG_13" -> newMpaaRating = MpaaRating.PG_13;
-            case "NC_17" -> newMpaaRating = MpaaRating.NC_17;
-            default -> {
+            case "G": {
+                newMpaaRating = MpaaRating.G;
+                break;
+            }
+            case "PG": {
+                newMpaaRating = MpaaRating.PG;
+                break;
+            }
+            case "PG_13": {
+                newMpaaRating = MpaaRating.PG_13;
+                break;
+            }
+            case "NC_17": {
+                newMpaaRating = MpaaRating.NC_17;
+                break;
+            }
+            default: {
                 System.out.println("Некорректный ввод возрастной категории, категория будет установлена по умолчанию");
                 newMpaaRating = MpaaRating.G;
+                break;
             }
         }
 
@@ -148,24 +171,44 @@ public class MovieBuilder {
         System.out.println("Выберите цвет глаз : -- RED ; WHITE ; BROWN");
         Color newColor;
         switch (scan.nextLine()) {
-            case "RED" -> newColor = Color.RED;
-            case "WHITE" -> newColor = Color.WHITE;
-            case "BROWN" -> newColor = Color.BROWN;
-            default -> {
+            case "RED": {
+                newColor = Color.RED;
+                break;
+            }
+            case "WHITE": {
+                newColor = Color.WHITE;
+                break;
+            }
+            case "BROWN": {
+                newColor = Color.BROWN;
+                break;
+            }
+            default: {
                 System.out.println("Неверный ввод цвета глаз, значение будет выбрано по умолчанию");
                 newColor = Color.RED;
+                break;
             }
         }
 
         System.out.println("Выберите национальность директора : -- UNITED_KINGDOM ; GERMANY ; ITALY");
         Country newCountry;
         switch (scan.nextLine()) {
-            case "UNITED_KINGDOM" -> newCountry = Country.UNITED_KINGDOM;
-            case "GERMANY" -> newCountry = Country.GERMANY;
-            case "ITALY" -> newCountry = Country.ITALY;
-            default -> {
+            case "UNITED_KINGDOM": {
+                newCountry = Country.UNITED_KINGDOM;
+                break;
+            }
+            case "GERMANY": {
+                newCountry = Country.GERMANY;
+                break;
+            }
+            case "ITALY": {
+                newCountry = Country.ITALY;
+                break;
+            }
+            default: {
                 System.out.println("Неверный ввод национальности, значение будет выбрано по умолчанию");
                 newCountry = Country.ITALY;
+                break;
             }
         }
 
