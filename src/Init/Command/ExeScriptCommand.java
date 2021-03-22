@@ -40,6 +40,8 @@ public class ExeScriptCommand {
             System.out.println(".");
         } catch (StackOverflowError e) {
             System.out.println("В файле команды находится рекурсия, т.е execute_script в execute_script ");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Ошибка ввода команды");
         }
     }
 }
