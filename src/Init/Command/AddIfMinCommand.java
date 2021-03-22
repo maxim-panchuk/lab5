@@ -19,9 +19,9 @@ public class AddIfMinCommand extends Commands {
     public static void execute(PriorityQueue<Movie> movies, String idd) {
         MovieBuilder movieBuilder = new MovieBuilder();
         int id = Integer.parseInt(idd);
-        Movie newElemtnt = movieBuilder.newMovie();
-        if (newElemtnt.getId() < id) {
-            movies.add(newElemtnt);
+        Movie newElement = movieBuilder.newMovie();
+        if (newElement.getId() < id) {
+            movies.add(newElement);
         }
     }
 }

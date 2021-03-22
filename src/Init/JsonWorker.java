@@ -1,10 +1,8 @@
 package Init;
 
-//import Collection.Director.*;
 import Collection.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-//import com.google.gson.JsonSyntaxException;
 import java.io.*;
 
 import java.util.PriorityQueue;
@@ -42,10 +40,8 @@ public class JsonWorker {
             bufferedReader.close();
 
         } catch (IOException e) {
-            //e.printStackTrace();
             System.out.println("Возникла ошибка доступа к файлу, либо недостаточно прав, либо файла не существует");
         }
-
         return movies;
     }
 
@@ -65,7 +61,6 @@ public class JsonWorker {
             bufferedWriter.close();
 
         } catch (IOException e) {
-            //e.printStackTrace();
             System.out.println("Возникла ошибка доступа к файлу, либо недостаточно прав, либо файла не существует");
         }
     }
