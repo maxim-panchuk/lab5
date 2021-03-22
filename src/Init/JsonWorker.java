@@ -42,7 +42,7 @@ public class JsonWorker {
             bufferedReader.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("Возникла ошибка доступа к файлу, либо недостаточно прав, либо файла не существует");
         }
 
@@ -65,7 +65,7 @@ public class JsonWorker {
             bufferedWriter.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("Возникла ошибка доступа к файлу, либо недостаточно прав, либо файла не существует");
         }
     }

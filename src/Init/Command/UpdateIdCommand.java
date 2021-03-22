@@ -18,20 +18,22 @@ public class UpdateIdCommand extends Commands {       // обновить зна
      * PriorityQueue, в которой нельзя изменять значения элемента во время работы итератора в одном потоке, обращение
      * к элементу по индексу в этой коллекции так же невозможно есть возможность изменить последний элемент.
      */
-    public static void execute(PriorityQueue<Movie> movies) {
-
-
-        System.out.println("Введите id элемента для перезаписи");
-        String input = in.nextLine();
+    public static void execute(PriorityQueue<Movie> movies, String input) {
         try {
             int id = Integer.parseInt(input);
             MovieBuilder movieBuilder = new MovieBuilder();
-
+            boolean found = false;
             for (Movie movie : movies) {
                 if (movie.getId().equals(id)) {
                     movies.remove(movie);
                     movies.add(movieBuilder.newMovie());
+                    found = true;
                 }
+            }
+            if (!found) {
+                System.out.println("Такого ID нет в коллекции");
+                System.out.println("Существующие элементы:");
+                ShowCommand.execute(movies);
             }
         } catch (NumberFormatException e) {
             System.out.println("NumberFormatException:  Некорректное значение ID, команда не может быть выполнена!");

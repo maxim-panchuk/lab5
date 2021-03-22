@@ -18,7 +18,7 @@ public class RemoveHeadCommand {
     public static void execute(PriorityQueue<Movie> movies) throws NoSuchElementException{
         try {
             System.out.println(movies.remove());
-            //System.out.println(movies.element());
+            System.out.println("Элемент успешно удален");
         } catch (NoSuchElementException e) {
             System.out.println("Все элементы коллекции удалены");
         }

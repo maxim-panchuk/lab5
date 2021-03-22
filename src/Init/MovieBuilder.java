@@ -75,25 +75,34 @@ public class MovieBuilder {
 
         int oscarsCount;
         while (true) {
-            System.out.println("Какое количество оскаров завовевал" + newMovieName + " (не меньше 1) ?");
-            String enterMovieOscars = scan.nextLine().trim();
-            if (!enterMovieOscars.matches(regex1)) {
-                System.out.println("Введи число в натуральных числах");
-            } else {
-                oscarsCount = Integer.parseInt(enterMovieOscars);
-                break;
+            try {
+                System.out.println("Какое количество оскаров завовевал" + newMovieName + " (не меньше 1) ?");
+                String enterMovieOscars = scan.nextLine().trim();
+                if (!enterMovieOscars.matches(regex1)) {
+                    System.out.println("Введи число в натуральных числах");
+                } else {
+                    oscarsCount = Integer.parseInt(enterMovieOscars);
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Слишком большое число, повторите ввод");
             }
+
         }
 
         int goldenPalmCount;
         while (true) {
-            System.out.println("Введите количество golden palm (не менее 1) :   ");
-            String enterGoldenPalmCount = scan.nextLine().trim();
-            if (!enterGoldenPalmCount.matches(regex1))
-                System.out.println("Введите число в натуральных числах");
-            else {
-                goldenPalmCount = Integer.parseInt(enterGoldenPalmCount);
-                break;
+            try {
+                System.out.println("Введите количество golden palm (не менее 1) :   ");
+                String enterGoldenPalmCount = scan.nextLine().trim();
+                if (!enterGoldenPalmCount.matches(regex1))
+                    System.out.println("Введите число в натуральных числах");
+                else {
+                    goldenPalmCount = Integer.parseInt(enterGoldenPalmCount);
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Слишком большое число, повторите ввод");
             }
         }
 
@@ -158,14 +167,19 @@ public class MovieBuilder {
         }
         double newHeight;
         while (true) {
-            System.out.println("Введите рост директора:   ");
-            String newHeightString = scan.nextLine().trim();
-            if (!newHeightString.matches(regex2)) {
-                System.out.println("Рост должен быть введен в формате double");
-            } else {
-                newHeight = Double.parseDouble(newHeightString);
-                break;
+            try {
+                System.out.println("Введите рост директора:   ");
+                String newHeightString = scan.nextLine().trim();
+                if (!newHeightString.matches(regex2)) {
+                    System.out.println("Рост должен быть введен в формате double");
+                } else {
+                    newHeight = Double.parseDouble(newHeightString);
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Слишком большое число, повторите ввод");
             }
+
         }
 
         System.out.println("Выберите цвет глаз : -- RED ; WHITE ; BROWN");

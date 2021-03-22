@@ -22,7 +22,7 @@ public class CommandSelector {
      */
     public void selectCommand(String command, PriorityQueue<Movie> movies, String filepath) {
 
-        String[] commandParts = command.split(" ");
+        String[] commandParts = command.trim().split(" ");
 
         switch (commandParts[0].trim()) {
             case "add_if_min": {
@@ -50,15 +50,26 @@ public class CommandSelector {
                 AddCommand.execute(movies);
                 break;
             }
-            case "update_id": {
-                UpdateIdCommand.execute(movies);
-                break;
+            case "update": {
+                try {
+                    String input = commandParts[1].trim();
+                    UpdateIdCommand.execute(movies, input);
+                    break;
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Введите команду в консольном формате update {id}");
+                    break;
+                }
+
             }
-            case "remove_by_id": {
-                System.out.println("Введите id элемента для удаления");
-                String input1 = in.nextLine();
-                RemoveByIdCommand.execute(movies, input1);
-                break;
+            case "remove": {
+                try {
+                    String input = commandParts[1].trim();
+                    RemoveByIdCommand.execute(movies, input);
+                    break;
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Введите команду в консольном формате remove {id}");
+                    break;
+                }
             }
             case "clear": {
                 ClearCommand.execute(movies);
@@ -77,8 +88,7 @@ public class CommandSelector {
                 break;
             }
             case "remove_greater": {
-                System.out.println("Введите id элемента, с которого произвести удаление");
-                String input1 = in.nextLine();
+                String input1 = commandParts[1].trim();
                 RemoveGreaterCommand.execute(movies, input1);
                 break;
             }

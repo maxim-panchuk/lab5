@@ -14,7 +14,23 @@ public class RemoveByIdCommand {
      * @param ida - id удаляемого элемента
      */
     public static void execute(PriorityQueue<Movie> movies, String ida) {
-        int id = Integer.parseInt(ida);
-        movies.removeIf(movie -> movie.getId().equals(id));
+        try {
+            int id = Integer.parseInt(ida);
+            boolean found = false;
+
+            for (Movie movie : movies) {
+                if (movie.getId().equals(id)) {
+                    movies.remove(movie);
+                    found = true;
+                    System.out.println("Элемент успешно удален");
+                }
+            }
+            if (!found) {
+                System.out.println("Элемента с таким ID не существует, список элементов коллекции:");
+                ShowCommand.execute(movies);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException:  Некорректное значение ID, команда не может быть выполнена!");
+        }
     }
 }

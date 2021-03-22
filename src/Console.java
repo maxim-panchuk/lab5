@@ -16,7 +16,8 @@ public class Console extends Commands {
 
     public static void main(String[] args) {
         try {
-            filepath = "/Users/maksimpancuk/Desktop/JavaLab/file.json";
+            System.out.println("Введите путь к файлу .json");
+            filepath = in.nextLine(); //"/Users/maksimpancuk/Desktop/JavaLab/file.json";
             String json = filepath.trim();
             if (filepath.contains("json")) {
 
@@ -25,11 +26,13 @@ public class Console extends Commands {
                 CommandSelector commandSelector = new CommandSelector();
                 Scanner in = new Scanner(System.in);
                 System.out.println("Введите команду, для получения информации о возможных командах, введите: help");
-                String command = in.nextLine();
-                while (!command.equals("exit")) {
+                while (in.hasNextLine()) {
+                    String command = in.nextLine();
+                    while (!command.equals("exit")) {
 
-                    commandSelector.selectCommand(command, movies, filepath);
-                    command = in.nextLine();
+                        commandSelector.selectCommand(command, movies, filepath);
+                        command = in.nextLine();
+                    }
                 }
             } else {
                 System.out.println("Формат файла должен быть json");
