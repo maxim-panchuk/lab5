@@ -26,13 +26,15 @@ public class Console extends Commands {
                 CommandSelector commandSelector = new CommandSelector();
                 Scanner in = new Scanner(System.in);
                 System.out.println("Введите команду, для получения информации о возможных командах, введите: help");
+
+                //boolean state = false;
                 while (in.hasNextLine()) {
                     String command = in.nextLine();
                     while (!command.equals("exit")) {
-
                         commandSelector.selectCommand(command, movies, filepath);
                         command = in.nextLine();
                     }
+                    break;
                 }
             } else {
                 System.out.println("Формат файла должен быть json");
