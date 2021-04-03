@@ -17,7 +17,7 @@ public class MovieBuilder {
     private final LocalTime time = LocalTime.now();
 
     String regex1 = "[0-9]+";
-    String regex2 = "\\d+.\\d+";
+    String regex2 = "\\d+[.]\\d+";
 
     public MovieBuilder() {
     }
@@ -168,20 +168,22 @@ public class MovieBuilder {
         double newHeight;
         while (true) {
             try {
-                System.out.println("Введите рост директора:   ");
+                System.out.println("Введите рост директора, рост больше 0:   ");
                 String newHeightString = scan.nextLine().trim();
                 if (!newHeightString.matches(regex2)) {
                     System.out.println("Рост должен быть введен в формате double");
-                } else {
+                } else if (Double.parseDouble(newHeightString) <= 0) {
+                    System.out.println("Рост должен быть больше 0!");
+                }
+
+                else {
                     newHeight = Double.parseDouble(newHeightString);
                     break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Слишком большое число, повторите ввод");
+                System.out.println("Слишком большое число, либо не соблюден формат double, повторите ввод");
             }
-
         }
-
         System.out.println("Выберите цвет глаз : -- RED ; WHITE ; BROWN");
         Color newColor;
         switch (scan.nextLine()) {
@@ -231,28 +233,52 @@ public class MovieBuilder {
         int newLocationZ;
 
         while (true) {
-            System.out.println("Выберите широту, долготу и высоту расположения родного города продюссера. Для широты и долготы: " +
-                    "[-180; 180], для высоты: [0; 2] ");
 
             try {
+                System.out.println("Выберите широту [-180; 180]: ");
                 String newDirectorXStr = scan.nextLine().trim();
-                String newDirectorYStr = scan.nextLine().trim();
-                String newDirectorZStr = scan.nextLine().trim();
-
                 newLocationX = Integer.parseInt(newDirectorXStr);
-                newLocationY = Integer.parseInt(newDirectorYStr);
-                newLocationZ = Integer.parseInt(newDirectorZStr);
-
-                if (!(newLocationX >= -180 && newLocationX <= 180 && newLocationY >= -180 && newLocationY <= 180
-                        && newLocationZ >= 0 && newLocationZ <= 2)) {
-                    System.out.println("Данные введены некорректно");
+                if (!(newLocationX >= -180 && newLocationX <= 180)) {
+                    System.out.println("Введите число в указанных пределах");
                 } else {
                     break;
                 }
-
             } catch (NumberFormatException e) {
                 System.out.println("Нужно ввести целое число");
             }
+
+        }
+
+        while (true) {
+            try {
+                System.out.println("Выберите долготу [-180; 180]: ");
+                String newDirectorYStr = scan.nextLine().trim();
+                newLocationY = Integer.parseInt(newDirectorYStr);
+                if (!(newLocationY >= -180 && newLocationY <= 180)) {
+                    System.out.println("Введите число в указанных пределах");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Нужно ввести целое число");
+            }
+
+        }
+
+        while (true) {
+            try {
+                System.out.println("Выберите высоту [0; 2]: ");
+                String newDirectorZStr = scan.nextLine().trim();
+                newLocationZ = Integer.parseInt(newDirectorZStr);
+                if (!(newLocationZ >= -180 && newLocationZ <= 180)) {
+                    System.out.println("Введите число в указанных пределах");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Нужно ввести целое число");
+            }
+
         }
         String newDirectorHomeTown;
         System.out.println("Введите название родного города продюссера");
