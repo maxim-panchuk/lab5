@@ -31,8 +31,8 @@ public class ExeScriptCommand {
                 if (lines[0].trim().equals("execute_script")) {
                     throw new StackOverflowError();
                 } else {
-                    commandSelector.selectCommand(line.trim(), movies, filepath);
-                    SaveCommand.execute(movies, filepath);
+                    commandSelector.selectCommand(line.trim(), movies, filepath, true);
+                    SaveCommand.execute(movies, filepath, true);
                 }
             }
             bufferedReader.close();

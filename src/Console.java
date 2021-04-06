@@ -17,10 +17,11 @@ public class Console extends Commands {
     public static String filepath = null;
 
     public static void main(String[] args) {
-
         try {
-            System.out.println("Введите путь к файлу .json");
-            filepath = in.nextLine(); //"/Users/maksimpancuk/Desktop/JavaLab/file.json";
+            //System.out.println("Введите путь к файлу .json");
+            //filepath = in.nextLine(); //"/Users/maksimpancuk/Desktop/JavaLab/file.json";
+
+            String filepath = args[0];
             String json = filepath.trim();
 
                 JsonWorker jsonWorker = new JsonWorker();
@@ -33,7 +34,7 @@ public class Console extends Commands {
                     String command = " ";
                     while (!command.equals("exit")) {
                         command = in.nextLine();
-                        commandSelector.selectCommand(command, movies, filepath);
+                        commandSelector.selectCommand(command, movies, filepath, JsonWorker.fileFound);
                     }
                 } catch (NoSuchElementException e) {
                     System.out.println("Ошибка ввода");
@@ -44,6 +45,8 @@ public class Console extends Commands {
             System.out.println("FileNotFoundException Файл не найден");
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Введите путь к файлу как аргумент командной строки");
         }
     }
     public static String setFilePath () {

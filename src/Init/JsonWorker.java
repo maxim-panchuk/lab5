@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.PriorityQueue;
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * Класс, отвечающий за работу приложения с коллекцией типа PriorityQueue
@@ -20,6 +19,7 @@ import java.util.UUID;
 public class JsonWorker {
 
     Random random = new Random();
+    public static boolean fileFound;
 
     /**
      *
@@ -74,7 +74,7 @@ public class JsonWorker {
     }
 
     public void end (PriorityQueue<Movie> movies, String filepath) {
-        boolean fileFound;
+        //boolean fileFound;
         File file = new File(filepath);
         if (file.exists() && !file.isDirectory()) {
             try {

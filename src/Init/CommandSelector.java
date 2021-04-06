@@ -20,7 +20,7 @@ public class CommandSelector {
      * @param movies - коллекция типа Movie для работы с объектами
      * @param filepath - путь до файла, в котором хранятся объекты коллекции
      */
-    public void selectCommand(String command, PriorityQueue<Movie> movies, String filepath) {
+    public void selectCommand(String command, PriorityQueue<Movie> movies, String filepath, Boolean fileFound) {
 
         String[] commandParts = command.trim().split(" ");
 
@@ -76,7 +76,7 @@ public class CommandSelector {
                 break;
             }
             case "save": {
-                SaveCommand.execute(movies, filepath);
+                SaveCommand.execute(movies, filepath, fileFound);
                 break;
             }
             case "remove_head": {

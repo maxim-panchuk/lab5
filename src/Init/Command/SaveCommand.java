@@ -15,7 +15,15 @@ public class SaveCommand extends Commands {
      * @param movies - Рабочая коллекция типа Movie
      * @param filepath - Путь к рабочему файлу
      */
-    public static void execute(PriorityQueue<Movie> movies, String filepath) {
-        jsonWorker.end(movies, filepath);
+    public static void execute(PriorityQueue<Movie> movies, String filepath, Boolean fileFound) {
+        if (!fileFound) {
+            System.out.println("Введите путь к файлу повторно");
+            filepath = in.nextLine();
+            jsonWorker.end(movies, filepath);
+            System.out.println("Сохранение проведено");
+        } else {
+            jsonWorker.end(movies, filepath);
+        }
+
     }
 }
